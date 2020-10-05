@@ -4,11 +4,11 @@ namespace scp035
 {
 	public class scp035 : Plugin<Config>
 	{
-		internal static scp035 instance;
+		public static scp035 instance;
 
 		private HarmonyLib.Harmony hInstance;
 
-		private EventHandlers ev;
+		public EventHandlers ev;
 
 		public override void OnEnabled()
 		{

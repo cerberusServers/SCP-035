@@ -98,7 +98,7 @@ namespace scp035
 			p035.RankName = "SCP-035";
 			p035.RankColor = "red";
 
-			p035.Broadcast(10, $"<size=60>You are <color=\"red\"><b>SCP-035</b></color></size>{(full ? "\n<i>You have infected a body and have gained control over it, use it to help the other SCPs!</i>" : string.Empty)}");
+			p035.Broadcast(10, $"<size=60>Tu eres <color=red><b>SCP-035</b></color></size>\n<i>Infectaste un cuerpo humano y ahora tienes total control sobre el, usalo para ayudar a los SCPs!</i>");
 
 			scpPlayer = p035;
 		}
@@ -116,7 +116,7 @@ namespace scp035
 
 				player.ClearInventory();
 				player.ChangeRole(RoleType.Spectator);
-				player.Broadcast(10, "<i>You have picked up <color=\"red\">SCP-035.</color> He has infected your body and is now in control of you.</i>");
+				player.Broadcast(10, "<b>Agarraste un objeto infectado con el <color=red>SCP-035.</color></b>\n<i><color=#F6C307>Ahora tiene control total sobre tu cuerpo y no puedes hacer nada para impedirlo.</color></i>");
 
 				RemovePossessedItems();
 
@@ -184,7 +184,7 @@ namespace scp035
 				int currHP = (int)scpPlayer.Health;
 				scpPlayer.Health = currHP + scp035.instance.Config.CorrodeDamage > scp035.instance.Config.Health ? scp035.instance.Config.Health : currHP + scp035.instance.Config.CorrodeDamage;
 			}
-			player.Damage(scp035.instance.Config.CorrodeDamage, DamageTypes.Nuke);
+			player.Damage(scp035.instance.Config.CorrodeDamage, DamageTypes.Poison);
 		}
 
 		private void GrantFF(Player player)

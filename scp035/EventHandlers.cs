@@ -6,14 +6,14 @@ using MEC;
 
 namespace scp035
 {
-	partial class EventHandlers
+	public partial class EventHandlers
 	{
 		public scp035 plugin;
 		public EventHandlers(scp035 plugin) => this.plugin = plugin;
 
 		private static List<Pickup> scpPickups = new List<Pickup>();
 		private List<int> ffPlayers = new List<int>();
-		internal static Player scpPlayer;
+		public static Player scpPlayer;
 		private static bool isHidden;
 		private static string tag;
 		private static string color;
