@@ -40,8 +40,15 @@ namespace scp035
 
 		public override void OnDisabled()
 		{
-			base.OnDisabled();
+			Gay();
 
+			hInstance.UnpatchAll();
+
+			ev = null;
+		}
+
+		public void Gay()
+		{
 			Exiled.Events.Handlers.Server.RoundStarted -= ev.OnRoundStart;
 			Exiled.Events.Handlers.Player.PickingUpItem -= ev.OnPickupItem;
 			Exiled.Events.Handlers.Server.RoundEnded -= ev.OnRoundEnd;
@@ -57,13 +64,9 @@ namespace scp035
 			Exiled.Events.Handlers.Player.FailingEscapePocketDimension -= ev.OnPocketDimensionDie;
 			Exiled.Events.Handlers.Player.Shooting -= ev.OnShoot;
 			Exiled.Events.Handlers.Player.UsingMedicalItem -= ev.OnUseMedicalItem;
-
-			hInstance.UnpatchAll();
-
-			ev = null;
 		}
 
 		public override string Name => "scp035";
-		public override string Author => "Cyanox"; 
+		public override string Author => "Cyanox";
 	}
 }
