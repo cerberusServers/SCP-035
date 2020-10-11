@@ -21,33 +21,20 @@ namespace scp035
 
 			ev = new EventHandlers(this);
 
-			Exiled.Events.Handlers.Server.RoundStarted += ev.OnRoundStart;
-			Exiled.Events.Handlers.Player.PickingUpItem += ev.OnPickupItem;
-			Exiled.Events.Handlers.Server.RoundEnded += ev.OnRoundEnd;
-			Exiled.Events.Handlers.Player.Died += ev.OnPlayerDie;
-			Exiled.Events.Handlers.Player.Hurting += ev.OnPlayerHurt;
-			Exiled.Events.Handlers.Player.EnteringPocketDimension += ev.OnPocketDimensionEnter;
-			Exiled.Events.Handlers.Server.EndingRound += ev.OnCheckRoundEnd;
-			Exiled.Events.Handlers.Player.Escaping += ev.OnCheckEscape;
-			Exiled.Events.Handlers.Player.ChangingRole += ev.OnSetClass;
-			Exiled.Events.Handlers.Player.Left += ev.OnPlayerLeave;
-			Exiled.Events.Handlers.Scp106.Containing += ev.OnContain106;
-			Exiled.Events.Handlers.Player.InsertingGeneratorTablet += ev.OnInsertTablet;
-			Exiled.Events.Handlers.Player.FailingEscapePocketDimension += ev.OnPocketDimensionDie;
-			Exiled.Events.Handlers.Player.Shooting += ev.OnShoot;
-			Exiled.Events.Handlers.Player.UsingMedicalItem += ev.OnUseMedicalItem;
+			CustomEnable();
+
 		}
 
 		public override void OnDisabled()
 		{
-			Gay();
+			CustomDisable();
 
 			hInstance.UnpatchAll();
 
 			ev = null;
 		}
 
-		public void Gay()
+		public void CustomDisable()
 		{
 			Exiled.Events.Handlers.Server.RoundStarted -= ev.OnRoundStart;
 			Exiled.Events.Handlers.Player.PickingUpItem -= ev.OnPickupItem;
@@ -64,6 +51,24 @@ namespace scp035
 			Exiled.Events.Handlers.Player.FailingEscapePocketDimension -= ev.OnPocketDimensionDie;
 			Exiled.Events.Handlers.Player.Shooting -= ev.OnShoot;
 			Exiled.Events.Handlers.Player.UsingMedicalItem -= ev.OnUseMedicalItem;
+		}
+		public void CustomEnable()
+		{
+			Exiled.Events.Handlers.Server.RoundStarted += ev.OnRoundStart;
+			Exiled.Events.Handlers.Player.PickingUpItem += ev.OnPickupItem;
+			Exiled.Events.Handlers.Server.RoundEnded += ev.OnRoundEnd;
+			Exiled.Events.Handlers.Player.Died += ev.OnPlayerDie;
+			Exiled.Events.Handlers.Player.Hurting += ev.OnPlayerHurt;
+			Exiled.Events.Handlers.Player.EnteringPocketDimension += ev.OnPocketDimensionEnter;
+			Exiled.Events.Handlers.Server.EndingRound += ev.OnCheckRoundEnd;
+			Exiled.Events.Handlers.Player.Escaping += ev.OnCheckEscape;
+			Exiled.Events.Handlers.Player.ChangingRole += ev.OnSetClass;
+			Exiled.Events.Handlers.Player.Left += ev.OnPlayerLeave;
+			Exiled.Events.Handlers.Scp106.Containing += ev.OnContain106;
+			Exiled.Events.Handlers.Player.InsertingGeneratorTablet += ev.OnInsertTablet;
+			Exiled.Events.Handlers.Player.FailingEscapePocketDimension += ev.OnPocketDimensionDie;
+			Exiled.Events.Handlers.Player.Shooting += ev.OnShoot;
+			Exiled.Events.Handlers.Player.UsingMedicalItem += ev.OnUseMedicalItem;
 		}
 
 		public override string Name => "scp035";
