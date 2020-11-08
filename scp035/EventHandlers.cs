@@ -40,7 +40,7 @@ namespace scp035
 		{
 			isRoundStarted = false;
 
-			Timing.KillCoroutines(coroutines);
+			Timing.KillCoroutines(coroutines.ToArray());
 			coroutines.Clear();
 		}
 
@@ -49,7 +49,7 @@ namespace scp035
 			// In case the round is force restarted
 			isRoundStarted = false;
 
-			Timing.KillCoroutines(coroutines);
+			Timing.KillCoroutines(coroutines.ToArray());
 			coroutines.Clear();
 		}
 
